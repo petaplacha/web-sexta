@@ -1,0 +1,340 @@
+/* --- Základní proměnné a barvy --- */
+:root {
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-grey: #9b9b9b;
+}
+
+/* --- Reset stylů --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Asap', sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.5;
+}
+
+/* --- Typografie --- */
+h1 {
+    font-size: 5.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    color: var(--color-grey);
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 550px;
+    color: var(--color-white);
+}
+
+/* --- Navigace --- */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.5rem;
+}
+
+nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--color-grey);
+}
+
+/* --- Hero Sekce --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    /* Fotka na pozadí je umístěna vpravo. Gradient zajišťuje ztmavení pro lepší čitelnost textu nalevo, pokud by fotka zasahovala až k textu. */
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0) 70%), url('img/hero.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+/* --- Sekce O mně (Moje téma) --- */
+.about-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 8rem 10%;
+    min-height: 100vh;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-image img {
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.cta-text {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* --- Tlačítka --- */
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-grey);
+    color: var(--color-white);
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #7a7a7a;
+}
+
+/* --- Responzivita (Mobilní zařízení) --- */
+@media (max-width: 992px) {
+    h1 { font-size: 4rem; }
+    h2 { font-size: 2.5rem; }
+    
+    .about-preview {
+        flex-direction: column;
+        padding: 5rem 5%;
+        gap: 3rem;
+    }
+    
+    .about-image {
+        justify-content: center;
+    }
+    
+    .hero {
+        background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('img/hero.jpg');
+        background-size: cover;
+        background-position: center right;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+}
+
+/* --- Stránka O mně --- */
+.about-page-section {
+    padding: 10rem 10% 5rem; /* Větší horní padding kvůli navigaci */
+    min-height: 100vh;
+}
+
+.about-header h1 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dva stejné sloupce */
+    gap: 4rem;
+    align-items: center;
+    row-gap: 6rem; /* Větší mezera mezi řádky */
+}
+
+.about-image-col img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* Stylování jednotlivých bodů */
+.list-item h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.list-item .num {
+    color: var(--color-grey);
+}
+
+.list-item p {
+    font-size: 1.1rem;
+    max-width: 450px;
+    margin-bottom: 0;
+}
+
+/* Odkazy v textu */
+.list-item a {
+    color: var(--color-white);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.list-item a:hover {
+    color: var(--color-grey);
+}
+
+/* --- Responzivita pro stránku O mně --- */
+@media (max-width: 992px) {
+    .about-header h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Na mobilu pod sebou */
+        gap: 3rem;
+    }
+
+    /* Aby na mobilu byla vždycky nejdřív fotka a pak text (volitelné) */
+    .right-image {
+        grid-row: 3; 
+    }
+}
+
+/* --- Stránka Kontakt (Full-bleed pozadí) --- */
+.contact-page-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Posune text doprava, aby fotka vlevo vynikla */
+    padding: 0 10%;
+    
+    /* Obrázek na pozadí s plynulým přechodem do černé na pravé straně pro čitelnost */
+    background: linear-gradient(to right, rgba(0,0,0,0) 30%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%), url('img/contact.jpg');
+    background-size: cover;
+    background-position: center left; /* Soustředí se na levou část s obličejem */
+    background-repeat: no-repeat;
+}
+
+.contact-content {
+    max-width: 50%; /* Text zabere jen pravou polovinu obrazovky */
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.contact-heading {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.contact-item h3 {
+    color: var(--color-grey);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p,
+.contact-item a {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin: 0;
+}
+
+.contact-item a {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--color-grey);
+}
+
+/* --- Responzivita pro stránku Kontakt --- */
+@media (max-width: 992px) {
+    .contact-page-section {
+        justify-content: flex-start; /* Na mobilu vrátíme text vlevo */
+        align-items: flex-end; /* Text posuneme spíše dolů */
+        padding-bottom: 5rem;
+        
+        /* Změna gradientu pro mobily - ztmavení odspodu nahoru */
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,1) 100%), url('img/contact.jpg');
+        background-size: cover;
+        background-position: center top;
+    }
+
+    .contact-content {
+        max-width: 100%;
+        gap: 2rem;
+    }
+
+    .contact-heading {
+        font-size: 3rem;
+    }
+}
